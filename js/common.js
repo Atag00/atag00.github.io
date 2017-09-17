@@ -49,8 +49,9 @@ $(document).ready(function() {
 	 	};		
 	};
 	
-	
-	document.querySelector('#Dlform input[type=button]').onclick = function(e){
+	console.log(document.querySelector('#Dlform input[type=submit]'));
+	document.querySelector('#Dlform input[type=submit]').onclick = function(e){
+		e.preventDefault();
 		for (var i = 0; i < formControl.length; i++) {
 			if (formControl[i].classList.contains('err')){
 				return false;
