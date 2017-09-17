@@ -25,6 +25,7 @@ $(document).ready(function() {
     
     	document.querySelector('.start button').onclick = function(){
         p.open();
+        console.log(p);
     };
 
 			/* Функція перевірки цілих чисел */
@@ -38,6 +39,7 @@ $(document).ready(function() {
 
 		formControl[i].onblur = function(){
 			var error = false;
+			console.log(this.value);
 			if(this.value < 0 || this.value > 10 || this.value === '' || isNaN(this.value)){
 	 			this.classList.add('err');
 	 			error = true;
@@ -48,7 +50,7 @@ $(document).ready(function() {
 	};
 	
 	
-	document.querySelector('#Dlform input[type=submit]').onclick = function(e){
+	document.querySelector('#Dlform input[type=button]').onclick = function(e){
 		for (var i = 0; i < formControl.length; i++) {
 			if (formControl[i].classList.contains('err')){
 				return false;
@@ -62,6 +64,8 @@ $(document).ready(function() {
 		dest[1] = +document.querySelector('#Dlform .destY').value;
 		var street1 = (isInteger(dep[0]) || isInteger(dep[1]));
 		var street2 = (isInteger(dest[0]) || isInteger(dest[1]));
+		console.log(street1, street2);
+		console.log('dep[0] > dest[0] - ' + (dep[0] > dest[0]));
 
 		if (!street1 || !street2){
 			return false;
@@ -80,6 +84,8 @@ $(document).ready(function() {
 		startY, endY, startX, endX,
 		shortesPathObj,
 		shortesPath; 
+		 console.log("dep[0]  - " + dep[0], 'dest[0] - ' + dest[0]);
+		    console.log('dep[0] > dest[0] - ' + (dep[0] > dest[0]));   		
 
 				/* Розмітка вулиць */			
 
@@ -143,6 +149,7 @@ $(document).ready(function() {
 	       	secondPath.firstPoint[0] = Math.ceil(dep[0]);   
 	       	firstPath.firstPoint[1] = secondPath.firstPoint[1] = dep[1];
 	    }
+	    console.log(secondPath.firstPoint, firstPath.firstPoint);
 
 	    		/*Визначення координат другої транзитної точки*/
 
@@ -185,8 +192,10 @@ $(document).ready(function() {
 
 	    context.fillStyle = "#fff";
 	    context.font = 'italic 25px sans-serif';
+	    console.log(dep,dest);
 	    startY = (dep[1] > 9.2) ? 9.2 : dep[1];
 	    endY = (dest[1] > 9.2) ? 9.2 : dest[1];
+	     console.log(dep,dest);
 	    if (dep[0] > dest[0]){
 	    	context.textAlign = "left";
 	    	context.fillText("(" + dep[0] + ", " + dep[1] + ")", dep[0] * 48 + 115, startY * -48 + 470);
@@ -207,6 +216,7 @@ $(document).ready(function() {
 
 	    if(dep[0] === dest[0]){
 	    	shortesPath = Math.abs(dep[1] - dest[1]).toFixed(1);
+	    	console.log('(dep[1] - dest[1]) - ' + (dep[1] - dest[1]));
 	    } else if(dep[1] === dest[1]){
 	    	shortesPath = Math.abs(dep[0] - dest[0]).toFixed(1);	
 		} else{
