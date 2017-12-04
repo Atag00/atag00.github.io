@@ -2,65 +2,127 @@
 <html lang="en">
 
 <head>
+
 	<meta charset="utf-8" />
+
 	<title>Adaptive website. Pert 1</title>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
 	<script src="https://use.fontawesome.com/0b12c34028.js"></script>
-	<link rel="stylesheet" href="css/main.css" />	
-	<link rel="stylesheet" href="css/fonts.css" />
-</head>
-<body>	
-	<header>
-		<nav>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<div class="title_block">
-							<h1>Find the shortes path</h1>			
-						</div>
-					</div>
-				</div>
-				<div class="top_line"></div>
-			</div>
-		</nav>
 
+	<link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/media.css" />
+	<link rel="stylesheet" href="css/fonts.css" />
+
+</head>
+
+<body>
+	<header>
 		<div class="container">
-			<div class="start">
-				<button class="my_btn btn_md" >start</button>				
-			</div>
 			<div class="row">
-				<div class="col-sm-8 col-sm-offset-2">
-					<div id="wrapper">
-						<canvas id="grid"></canvas>
-						<h5></h5>   						
+				<div class="col-md-8 col-md-offset-2">
+					<div class="title_block">
+					<h1>Choose your pizza</h1>				
 					</div>
-				</div>
-			</div>	
-		</div>		
-	</header>
-	<div class="modal" id="DlModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Enter departure and destination coordinates (0.0 to 10.0)</h4>
-				</div>
-				<div class="modal-body">
-					<form action="#" id="Dlform">
-						<input type="text" class="form-control depX" placeholder="departure X">
-						<input type="text" class="form-control depY" placeholder="departure Y">
-						<input type="text" class="form-control destX" placeholder="destenation X">
-						<input type="text" class="form-control destY" placeholder="destenation Y">
-						<input type="submit" value="send" data-dismiss="modal" class="my_btn btn_md btn-block ">
-					</form>
 				</div>
 			</div>
 		</div>
+	</header>	
+
+	<section class="works_s">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 col-sm-6 p0">
+					<div class="works-block">
+						<div class="image-wrap">
+							<div class="work_descr">
+								<h4>CAP</h4>
+								<p>Pizza</p>
+							</div>
+						</div>
+						<img src="img/work-1.jpg" class="img-responsive" alt="workitem">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 p0">
+					<div class="works-block">
+						<div class="image-wrap">
+							<div class="work_descr">
+								<h4>ONIONS</h4>
+								<p>Pizza</p>
+							</div>
+						</div>
+						<img src="img/work-2.jpg" class="img-responsive" alt="workitem">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 p0">
+					<div class="works-block">
+						<div class="image-wrap">
+							<div class="work_descr">
+								<h4>KING ONE</h4>
+								<p>Pizza</p>
+							</div>
+						</div>
+						<img src="img/work-3.jpg" class="img-responsive" alt="workitem">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 p0">
+					<div class="works-block">
+						<div class="image-wrap">
+							<div class="work_descr">
+								<h4>GAVAY</h4>
+								<p>Pizza</p>
+							</div>
+						</div>
+						<img src="img/work-4.jpg" class="img-responsive" alt="workitem">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 p0">
+					<div class="works-block">
+						<div class="image-wrap">
+							<div class="work_descr">
+								<h4>TONNO</h4>
+								<p>Pizza</p>
+							</div>
+						</div>
+						<img src="img/work-5.jpg" class="img-responsive" alt="workitem">
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 p0">
+					<div class="works-block">
+						<div class="image-wrap">
+							<div class="work_descr">
+								<h4>VEGETARIAN</h4>
+								<p>Pizza</p>
+							</div>
+						</div>
+						<img src="img/work-6.jpg" class="img-responsive" alt="workitem">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="result_s">
+		<div class="container">
+			<div class="res pop-pizza">
+				<h4>5 the most popular kind if pizza are:</h4>
+				<p>cup</p>
+			</div>
+			<div class="res pop-ingredient">
+				<h4>The most popular ingridients are:</h4>
+				<p></p>
+			</div>
+
+		
+		</div>
 	</div>
+
 	<script src="libs/jquery/jquery-2.1.4.min.js"></script>
 	<script src="libs/bootstrap/js/bootstrap.min.js"></script>
-	<script src="js/common.js"></script>	
+	<script src="js/common.js"></script>
+
 </body>
 </html>
 
