@@ -1,4 +1,4 @@
-	
+var Pizza = (function(){
 			/*A list of pizza with ingredients*/
 	var pizzas = {
 		cap:{
@@ -55,8 +55,7 @@
 
 			/* A list if baced pizza */
 
-	var lastPizzas = ['gavay', 'tonno', 'onions', 'onions', 'cap', 'cap', 'cap', 'cap', 'cap', 'gavay', 'gavay', 'gavay', 'vegeterian', 'vegeterian', 'vegeterian',
-	 'king_one', 'king_one', 'king_one', 'king_one', 'king_one', 'king_one', 'cap']
+	var lastPizzas = []
 
  
 	 		/* Function for creating an array of pizzas with the order quantity of each of them */
@@ -93,43 +92,53 @@
 			 /* Function for determining ingredients */
 
 	function ingredients(list, piz){
-		var arr = popular(list), obj = {}; ingredients = [];
+		var arr = popular(list), obj = {}; ingred = [];
 		for(i = 0; i < arr.length; i++){
 			for(k in piz[arr[i]]){
 				obj[k] ? obj[k]++ : obj[k] = 1;
 			}
 		}
 		for(k in obj){
-			ingredients.push({coin: obj[k], ingredient: k})
+			ingred.push({coin: obj[k], ingredient: k})
 		}
-		ingredients = ingredients.sort(compareNumeric);
-		for(i = 0; i < ingredients.length; i++){
-			ingredients[i] = ingredients[i].ingredient;
+		ingred = ingred.sort(compareNumeric);
+		for(i = 0; i < ingred.length; i++){
+			ingred[i] = ingred[i].ingredient;
 		}	
-		return ingredients;
+		return ingred;
 	}
 
-
-	function getPizzaInfo(pizzaList){
-
+	function info(pizzaList){
 		return {
-
 			popular: popular(pizzaList), /*// масив повинен включати 5 найпопулярніших піц*/
 			ingredients: ingredients(pizzaList, pizzas) /*// масив, який містить назви інгрідієнтів
 			// по популярності*/
-
 		}
+	};
+
+	function addLastPizza(lastOrderedPizza){
+		lastPizzas.push(lastOrderedPizza)
 	}
 
-	/*console.log(getPizzaInfo(lastPizzas).popular.join(', '))*/
-	var a = getPizzaInfo(lastPizzas)
+	return{
+		getPizzaInfo: info,
+		last: lastPizzas,
+		add: addLastPizza
+	}
+}())
+
+	$('.image-wrap').on('click', function (){
+		var p = ($(this).attr("data-op"));
+		Pizza.add(p);
+		var i = Pizza.getPizzaInfo(Pizza.last);
+		$('.pop-pizza p').html(i.popular.join(', '));
+		$('.pop-ingredient p').html(i.ingredients.join(', '));
+		  $('html, body').animate({
+            scrollTop: $('.pop-ingredient h4').offset().top - 70
+        }, 800);
+	});
+
+
+
+
 	
-	console.log(a.ingredients)
-	console.log(a.popular.join(', '))
-	console.log(a.ingredients)
-	console.log(a.popular)
-
-	document.querySelector('.pop-pizza p').innerHTML = a.popular.join(', ')
-	document.querySelector('.pop-ingredient p').innerHTML = a.ingredients.join(', ')
-
-

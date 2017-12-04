@@ -41,7 +41,7 @@ header{
 
 	/* WORKS SECTION */
 
-.works-block{
+.pizza-block{
 	position: relative;
 }
 .image-wrap{
@@ -58,15 +58,15 @@ header{
 	display: flex;
 	opacity: 0;
 }
-.works-block:hover .image-wrap{
+.pizza-block:hover .image-wrap{
 	opacity: 1;
 }
-.work_descr{
+.pizza_descr{
 	text-align: center;
 	color: #fff;
 	margin: auto;
 }
-.work_descr h4{
+.pizza_descr h4{
 	font-size: 32px;
     font-weight: 800;
 }
